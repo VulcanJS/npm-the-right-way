@@ -30,6 +30,19 @@ Isomorphism is only possible with some magic at import time (basically changing 
 - `cd .. && cd demo-next-app && yarn && yarn run dev` - Will start a Next.js app that imports each package
 - Open relevant page to test the import
 
+## How you can help
+
+See contribute section below.
+
+You can:
+
+- add a demo with a new bundler
+- improve the build for one of the bundler we cover
+- add automated tests for the Next.js app, using Jest or Cypress
+- open an issue with ideas, feedback, knowledge about bundlers, a feature you'd like to test etc. etc.
+- add a performance benchmark
+- automate building, facilitate development
+
 ## Learnings
 
 ### Formats
@@ -56,6 +69,11 @@ Moderne bundlers such as Esbuild might not support them: https://github.com/evan
 - Webpack has a weird way to handle packages in Lerna repo, the bundle sometimes end up containing the current package + imports: https://github.com/lerna/lerna/issues/3006
 
 At the moment this repo doesn't demo importing other packages, or monorepo, but it could useful in the future.
+
+### Esbuild
+
+- Handling external is utterly painful for the server export! You want to add packages such as React, Graphql etc. as "externals" but there
+  is no easy way to add all packages from package.json as externals
 
 ### Others
 

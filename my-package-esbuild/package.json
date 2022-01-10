@@ -1,0 +1,41 @@
+{
+  "name": "my-package-esbuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./server": "./dist/server/index.js",
+    "./client": "./dist/client/index.js"
+  },
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "server": [
+        "./dist/server/index.d.ts"
+      ],
+      "client": [
+        "./dist/client/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "clean": "rm -Rf ./dist && rm -Rf *.tgz",
+    "prebuild": "yarn run clean",
+    "build:shared": "esbuild shared/index.ts --outdir=dist/       --sourcemap --bundle --minify --platform=neutral --main-fields=module,main,browser --external:tty # Don't forget to add type:'module' in package.json",
+    "build:client": "esbuild client/index.ts --outdir=dist/client --sourcemap --bundle --minify --platform=browser",
+    "build:server": "esbuild server/index.ts --outdir=dist/server --sourcemap --bundle --minify --platform=node --external:react --external:react-dom",
+    "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.build.json",
+    "build": "yarn run build:shared && yarn run build:client && yarn run build:server && yarn run build:types",
+    "publish": "yarn run build && npm pack"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "esbuild": "^0.14.11"
+  }
+}
