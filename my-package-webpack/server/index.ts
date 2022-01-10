@@ -1,7 +1,7 @@
 export * from "../shared";
 
-console.log("window", window);
-if (typeof window !== "undefined") {
+console.log("window server update", window);
+if (typeof window !== "undefined" && !!window) {
   throw new Error("You tried to import server-only code on the client.");
 }
 

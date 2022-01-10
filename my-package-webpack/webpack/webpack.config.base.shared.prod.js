@@ -37,7 +37,7 @@ module.exports = {
                   "transform-define",
                   {
                     "process.env.NODE_ENV": "production",
-                    window: "42",
+                    window: null,
                   },
                 ],
               ],

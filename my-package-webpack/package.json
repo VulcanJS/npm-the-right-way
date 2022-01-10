@@ -23,6 +23,8 @@
     }
   },
   "scripts": {
+    "clean": "rm -Rf ./dist && rm -Rf *.tgz",
+    "prebuild": "yarn run clean",
     "build:shared": "webpack --config ./webpack.config.shared.js",
     "build:client": "webpack --config ./webpack.config.client.js",
     "build:server": "webpack --config ./webpack.config.server.js",

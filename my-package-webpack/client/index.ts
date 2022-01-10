@@ -1,7 +1,7 @@
 export * from "../shared";
 
-if (typeof window === "undefined") {
-  throw new Error("You tried to import clientOnly code on the server.");
+if (typeof window === "undefined" || !window) {
+  throw new Error("You tried to import client-only code on the server.");
 }
 
 export type ClientOnlyType = "client-only";
