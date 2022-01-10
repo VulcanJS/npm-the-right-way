@@ -1,3 +1,5 @@
+import fs from "fs"; // example of a server-only import
+
 export * from "../shared";
 
 /*
