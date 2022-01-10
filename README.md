@@ -49,7 +49,11 @@ Moderne bundlers such as Esbuild might not support them: https://github.com/evan
 - Webpack has a weird way to handle packages in Lerna repo, the bundle sometimes end up containing the current package + imports: https://github.com/lerna/lerna/issues/3006
 
 At the moment this repo doesn't demo importing other packages, or monorepo, but it could useful in the future.
-### Tools
+
+### Others
+
+- Typing the bundler config is often difficult, because they are run at low-level, using Node.
+The `@types` directive in comments might help having IntelliSense in VS code, without actually using TypeScript files.
 
 ## Contribute
 

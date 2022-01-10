@@ -1,6 +1,6 @@
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const path = require("path");
-const baseConfig = require("../../webpack/webpack.config.base.common.prod");
+const baseConfig = require("./webpack/webpack.config.base.client.prod");
 module.exports = merge(baseConfig, {
   entry: {
     index: path.resolve(__dirname, "./client/index.ts"),
