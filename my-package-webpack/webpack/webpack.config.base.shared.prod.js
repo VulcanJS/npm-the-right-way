@@ -37,8 +37,6 @@ module.exports = {
                   "transform-define",
                   {
                     "process.env.NODE_ENV": "production",
-                    // TODO: this is to avoid failing the build, but we may need to improve this
-                    window: "42",
                   },
                 ],
               ],
