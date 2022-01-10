@@ -14,7 +14,7 @@ const DynamicClientOnly = dynamic(
     ),
   { ssr: false }
 );
-export default function WithWebpackPage(props: { serverOnly: ServerOnlyType }) {
+export default function WithEsbuildPage(props: { serverOnly: ServerOnlyType }) {
   return (
     <div>
       <div>Server-only: {props.serverOnly}</div>

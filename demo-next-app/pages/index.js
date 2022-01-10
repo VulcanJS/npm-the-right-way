@@ -7,7 +7,12 @@ export default function Home() {
       <ul>
         <li>
           <Link href="/with-webpack">
-            <a>Demo with webpack import</a>
+            <a>Demo importing a full-stack package built with Webpack</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/with-esbuild">
+            <a>Demo importing a full-stack package built with Esbuild</a>
           </Link>
         </li>
       </ul>

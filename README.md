@@ -86,17 +86,20 @@ leading to stale imports
 
 ## Contribute
 
-If you want to test a new bundler, copy `package-template` and setup `package.json` accordingly.
+- If you want to test a new bundler, copy `package-template` and setup `package.json` accordingly.
 Please try to modify only the `package.json`: this way we can compare bundlers against the same basic features.
-Then add a new page in the Next.js demo app.
 
-To update a package, publish it, and rerun `yarn` in the Next.js app. You may need to use `npm` if the package is not updated, see https://github.com/yarnpkg/yarn/issues/6811
+- Then add a new page in the Next.js demo app.
 
-You may use this package to reproduce bugs for certain bundlers. 
+- To update a package, run `yarn run publish` to build and pack it, and rerun `yarn` in the Next.js app. 
+You may need to use `npm` if the package is not updated, see https://github.com/yarnpkg/yarn/issues/6811, for example `npm i my-package-webpack`.
+This is because of a bug in Yarn relative to local packages when using tarballs and relative paths.
+
+- You may use this package to reproduce bugs for certain bundlers. 
 In this case, reproduce your bug, and open a pull request. We'll keep it open until the maintainers of the bundler fix the bug.
 
-If you want to test a new feature (exporting React components, supporting path aliases or whatever),
-you may open a PR modifying the "package-template". We can then apply this change to all the packages using a command.
+- If you want to test a new feature (exporting React components, supporting path aliases or whatever),
+you may open a PR modifying the "package-template". We can then apply this change to all the packages using a command in the future, or apply it manually.
 
 
 ## References
