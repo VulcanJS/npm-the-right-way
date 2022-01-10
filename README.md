@@ -57,6 +57,7 @@ At the moment this repo doesn't demo importing other packages, or monorepo, but 
 The `@types` directive in comments might help having IntelliSense in VS code, without actually using TypeScript files.
 - Don't forget to drop `.next` from time to time when working with local packages. Next.js might cache them,
 leading to stale imports
+- NPM and/or Yarn may cache .tgz files in an unexpected way, reinstalling a stale version everytime:https://github.com/yarnpkg/yarn/issues/6811
 
 ## Contribute
 
@@ -64,8 +65,7 @@ If you want to test a new bundler, copy `package-template` and setup `package.js
 Please try to modify only the `package.json`: this way we can compare bundlers against the same basic features.
 Then add a new page in the Next.js demo app.
 
-To update a package, publish it, and rerun `yarn` in the Next.js app.
-nso
+To update a package, publish it, and rerun `yarn` in the Next.js app. You may need to use `npm` if the package is not updated, see https://github.com/yarnpkg/yarn/issues/6811
 
 You may use this package to reproduce bugs for certain bundlers. 
 In this case, reproduce your bug, and open a pull request. We'll keep it open until the maintainers of the bundler fix the bug.
