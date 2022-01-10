@@ -63,6 +63,7 @@ Moderne bundlers such as Esbuild might not support them: https://github.com/evan
 - TypeScript doesn't support multi entry exports correctly at the time of writing, see this article for a hackish (but brilliant) solution to bypass this issue: https://blog.mozilla.org/data/2021/04/07/this-week-in-glean-publishing-glean-js/, see Stack Overflow question: https://stackoverflow.com/questions/63058081/package-json-with-multiple-entrypoints
 - For all bundlers that do not support generating `.d.ts`, you can simply use `"tsc --emitDeclarationOnly --declaration` to generate the type definitions. Generating such files needs TypeScript, it's not yet possible to create them more quickly without rewriting TypeScript. They will account for most of the build time when using Esbuild or SWC, half of the build-time (very roughly, can vary) for a Webpack project.
 - You must not alter the file names when building, otherwise your definition files won't match. See https://webpack.js.org/configuration/output/#outputlibrarytype
+- There is an issue between `@types/node` and TS 4.5, we locked it to 4.2 in the Esbuild demo: @see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/55430
 
 ### Webpack
 
