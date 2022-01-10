@@ -3,9 +3,30 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./server": "./dist/server/index.js",
+    "./client": "./dist/client/index.js"
+  },
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "server": [
+        "./dist/server/index.d.ts"
+      ],
+      "client": [
+        "./dist/client/index.d.ts"
+      ]
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo \"Error: no build specified\" && exit 1"
+    "build:shared": "webpack --config ./webpack.config.shared.js",
+    "build:client": "webpack --config ./webpack.config.client.js",
+    "build:server": "webpack --config ./webpack.config.server.js",
+    "build": "yarn run build:shared && yarn run build:server && yarn run build:client"
   },
   "author": "",
   "license": "MIT"

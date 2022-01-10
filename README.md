@@ -40,6 +40,15 @@ Moderne bundlers such as Esbuild might not support them: https://github.com/evan
   - need better support in TypeScript
   - need better support in Jest, should be shipped in Jest 28: https://github.com/facebook/jest/issues/9771
 
+### TypeScript
+
+- TypeScript doesn't support multi entry exports correctly at the time of writing, see this article for a hackish (but brilliant) solution to bypass this issue: https://blog.mozilla.org/data/2021/04/07/this-week-in-glean-publishing-glean-js/, see Stack Overflow question: https://stackoverflow.com/questions/63058081/package-json-with-multiple-entrypoints
+
+### Webpack
+
+- Webpack has a weird way to handle packages in Lerna repo, the bundle sometimes end up containing the current package + imports: https://github.com/lerna/lerna/issues/3006
+
+At the moment this repo doesn't demo importing other packages, or monorepo, but it could useful in the future.
 ### Tools
 
 ## Contribute
@@ -56,4 +65,5 @@ you may open a PR modifying the "package-template". We can then apply this chang
 
 ## References
 
-- https://github.com/vercel/next.js/discussions/9133#discussioncomment-1927292
+- Next.js Plugin RFC: https://github.com/vercel/next.js/discussions/9133#discussioncomment-1927292
+- Vulcan Fullstack packages RFC: https://github.com/VulcanJS/vulcan-npm/issues/14
