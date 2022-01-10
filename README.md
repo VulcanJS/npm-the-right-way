@@ -21,8 +21,8 @@ Isomorphism is only possible with some magic at import time (basically changing 
 
 - Clone this repo
 - `yarn` - Install relevant packages
-- `cd my-package-webpack && yarn run publish` - Will build your package + generate a tarball
-- `cd .. && yarn run dev` - Will start a Next.js app that imports each package
+- `cd my-package-webpack && yarn && yarn run publish` - Will build your package + generate a tarball
+- `cd .. && cd demo-next-app && yarn && yarn run dev` - Will start a Next.js app that imports each package
 - Open relevant page to test the import
 
 ## Learnings
