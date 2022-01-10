@@ -1,0 +1,12 @@
+{
+  "name": "my-package-ADD-BUNDLER-NAME-HERE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Error: no build specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
