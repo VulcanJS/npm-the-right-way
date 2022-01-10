@@ -1,5 +1,6 @@
 {
   "devDependencies": {
     "typescript": "^4.5.4"
-  }
+  },
+  "license": "MIT"
 }

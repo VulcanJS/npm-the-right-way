@@ -17,13 +17,13 @@ We want to achieve the same "DevX" with modern, generic bundlers.
 Note: the shared code will be exactly the same in both environment, this is slightly different to what we call isomorphism.
 Isomorphism is only possible with some magic at import time (basically changing `my-package` to `my-package/<current-environment>` at build time in your app), which is out of scope here.
 
-## Test
+## Run and test
 
 - Clone this repo
 - `yarn` - Install relevant packages
-- `cd my-package-webpack && yarn run build` - Will build your package
-- `cd .. && yarn run publish` - Will pack your NPM package, as if you sent them to NPM but locally
-- `yarn run dev` - Will start a Next.js app that imports each package
+- `cd my-package-webpack && yarn run publish` - Will build your package + generate a tarball
+- `cd .. && yarn run dev` - Will start a Next.js app that imports each package
+- Open relevant page to test the import
 
 ## Learnings
 
@@ -43,6 +43,7 @@ Moderne bundlers such as Esbuild might not support them: https://github.com/evan
 ### TypeScript
 
 - TypeScript doesn't support multi entry exports correctly at the time of writing, see this article for a hackish (but brilliant) solution to bypass this issue: https://blog.mozilla.org/data/2021/04/07/this-week-in-glean-publishing-glean-js/, see Stack Overflow question: https://stackoverflow.com/questions/63058081/package-json-with-multiple-entrypoints
+- For all bundlers that do not support generating `.d.ts`, you can simply use `"tsc --emitDeclarationOnly --declaration` to generate the type definitions. Generating such files needs TypeScript, it's not yet possible to create them more quickly without rewriting TypeScript. They will account for most of the build time when using Esbuild or SWC, half of the build-time (very roughly, can vary) for a Webpack project.
 
 ### Webpack
 
@@ -59,6 +60,7 @@ The `@types` directive in comments might help having IntelliSense in VS code, wi
 
 If you want to test a new bundler, copy `package-template` and setup `package.json` accordingly.
 Please try to modify only the `package.json`: this way we can compare bundlers against the same basic features.
+Then add a new page in the Next.js demo app.
 
 You may use this package to reproduce bugs for certain bundlers. 
 In this case, reproduce your bug, and open a pull request. We'll keep it open until the maintainers of the bundler fix the bug.

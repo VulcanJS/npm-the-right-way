@@ -1,5 +1,5 @@
 {
-  "name": "my-package-webpacke",
+  "name": "my-package-webpack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -26,7 +26,8 @@
     "build:shared": "webpack --config ./webpack.config.shared.js",
     "build:client": "webpack --config ./webpack.config.client.js",
     "build:server": "webpack --config ./webpack.config.server.js",
-    "build": "yarn run build:shared && yarn run build:server && yarn run build:client"
+    "build": "yarn run build:shared && yarn run build:server && yarn run build:client",
+    "publish": "yarn run build && npm pack"
   },
   "author": "",
   "license": "MIT",
