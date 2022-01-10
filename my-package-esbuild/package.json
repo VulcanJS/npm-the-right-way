@@ -28,7 +28,7 @@
     "build:shared": "esbuild shared/index.ts --outdir=dist/       --sourcemap --bundle --minify --platform=neutral --main-fields=module,main,browser --external:tty # Don't forget to add type:'module' in package.json",
     "build:client": "esbuild client/index.ts --outdir=dist/client --sourcemap --bundle --minify --platform=browser",
     "build:server": "esbuild server/index.ts --outdir=dist/server --sourcemap --bundle --minify --platform=node --external:react --external:react-dom",
-    "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.build.json",
+    "build:types": "tsc --project tsconfig.build.json",
     "build": "yarn run build:shared && yarn run build:client && yarn run build:server && yarn run build:types",
     "publish": "yarn run build && npm pack"
   },
@@ -37,5 +37,8 @@
   "devDependencies": {
     "@types/node": "^17.0.8",
     "esbuild": "^0.14.11"
+  },
+  "dependencies": {
+    "react": "^17.0.2"
   }
 }
