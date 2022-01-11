@@ -36,7 +36,7 @@ See contribute section below.
 
 You can:
 
-- add a demo with a new bundler
+- add a demo with a new bundler: Rollup and Tsup (https://github.com/egoist/tsup) could be great candidates.
 - improve the build for one of the bundler we cover
 - add automated tests for the Next.js app, using Jest or Cypress
 - open an issue with ideas, feedback, knowledge about bundlers, a feature you'd like to test etc. etc.
