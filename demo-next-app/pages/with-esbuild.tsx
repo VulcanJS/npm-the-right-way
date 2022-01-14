@@ -1,20 +1,7 @@
 import { shared, isClient, SharedType } from "my-package-esbuild";
 import { serverOnly, ServerOnlyType } from "my-package-esbuild/server";
+import { DynamicClientOnly } from "../components/DynamicClientOnly";
 
-// import type { ClientOnlyType } from "my-package-webpack/client";
-import dynamic from "next/dynamic";
-
-// @ts-ignore
-const DynamicClientOnly = dynamic(
-  () =>
-    import("my-package-esbuild/client").then(
-      (mod) =>
-        function ClientOnlyComponent() {
-          return <>{mod.clientOnly}</>;
-        }
-    ),
-  { ssr: false }
-);
 export default function WithEsbuildPage(props: { serverOnly: ServerOnlyType }) {
   return (
     <div>

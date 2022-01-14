@@ -65,6 +65,7 @@ Moderne bundlers such as Esbuild might not support them: https://github.com/evan
 - You must not alter the file names when building, otherwise your definition files won't match. See https://webpack.js.org/configuration/output/#outputlibrarytype
 - There is an issue between `@types/node` and TS 4.5, we locked it to 4.2 in the Esbuild demo: @see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/55430
 - TS will transpile dynamic import, leading to `Module not found: ESM packages (my-package-esbuild/client) need to be imported. Use 'import'`. You need to prevent it from doing so: https://stackoverflow.com/questions/65265420/how-to-prevent-typescript-from-transpiling-dynamic-imports-into-require
+In Next.js, the issue can be bypassed by definining an intermdiate client-only, using top level `import`, and then dynamically importing only the local component.
 
 ### Webpack
 
