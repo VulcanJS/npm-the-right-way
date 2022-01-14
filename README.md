@@ -64,6 +64,7 @@ Moderne bundlers such as Esbuild might not support them: https://github.com/evan
 - For all bundlers that do not support generating `.d.ts`, you can simply use `"tsc --emitDeclarationOnly --declaration` to generate the type definitions. Generating such files needs TypeScript, it's not yet possible to create them more quickly without rewriting TypeScript. They will account for most of the build time when using Esbuild or SWC, half of the build-time (very roughly, can vary) for a Webpack project.
 - You must not alter the file names when building, otherwise your definition files won't match. See https://webpack.js.org/configuration/output/#outputlibrarytype
 - There is an issue between `@types/node` and TS 4.5, we locked it to 4.2 in the Esbuild demo: @see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/55430
+- TS will transpile dynamic import, leading to `Module not found: ESM packages (my-package-esbuild/client) need to be imported. Use 'import'`. You need to prevent it from doing so: https://stackoverflow.com/questions/65265420/how-to-prevent-typescript-from-transpiling-dynamic-imports-into-require
 
 ### Webpack
 
@@ -78,6 +79,7 @@ At the moment this repo doesn't demo importing other packages, or monorepo, but 
 
 ### Esmodules
 
+- They are more appropriate for packages as "IIFE", because packages might be imported within an app that will in turn be built. ES modules will give more freedom to the app bundler, while in an NPM package we want to minimize the build step. See https://esbuild.github.io/api/#format
 - Setting "type":"module" in package.json will apply to **all exports**! So if you use CommonJS exports for Node + ESM for browser the Node imports will break. At the moment avoid this option if you need to support fullstack packages, prefer conditional exports: https://nodejs.org/api/packages.html#conditional-exports. Use `.mjs` extension to make it clear that the shared code is using ESM
 - Exporting Node to ES modules is a bad idea. Instead use conditionnal exports, and CommonJS for node code.
   
