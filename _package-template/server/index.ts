@@ -1,5 +1,6 @@
 import fs from "fs"; // example of a server-only import
 
+// We reexport shared code as a convenience for people that will only use the CommonJS server version
 export * from "../shared";
 
 /*

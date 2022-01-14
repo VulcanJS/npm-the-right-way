@@ -78,7 +78,7 @@ At the moment this repo doesn't demo importing other packages, or monorepo, but 
 
 ### Esmodules
 
-- Setting "type":"module" in package.json will apply to **all exports**! So if you use CommonJS exports for Node + ESM for browser the Node imports will break. At the moment avoid this option if you need to support fullstack packages, prefer conditional exports: https://nodejs.org/api/packages.html#conditional-exports.
+- Setting "type":"module" in package.json will apply to **all exports**! So if you use CommonJS exports for Node + ESM for browser the Node imports will break. At the moment avoid this option if you need to support fullstack packages, prefer conditional exports: https://nodejs.org/api/packages.html#conditional-exports. Use `.mjs` extension to make it clear that the shared code is using ESM
 - Exporting Node to ES modules is a bad idea. Instead use conditionnal exports, and CommonJS for node code.
   
 ### Others
@@ -113,3 +113,4 @@ you may open a PR modifying the "package-template". We can then apply this chang
 - Next.js Plugin RFC: https://github.com/vercel/next.js/discussions/9133#discussioncomment-1927292
 - Vulcan Fullstack packages RFC: https://github.com/VulcanJS/vulcan-npm/issues/14
 - TS and ESM https://github.com/microsoft/TypeScript/issues/42151
+- Conditional exports in package: https://nodejs.org/api/packages.html#conditional-exports

@@ -8,10 +8,11 @@
   ],
   "exports": {
     ".": {
+      "node": "./dist/server/index.js",
       "import": "./dist/shared/index.mjs"
     },
     "./server": "./dist/server/index.js",
-    "./client": "./dist/client/index.js"
+    "./client": "./dist/client/index.mjs"
   },
   "types": "./dist/shared/index.d.ts",
   "typesVersions": {
@@ -28,7 +29,7 @@
     "clean": "rm -Rf ./dist && rm -Rf *.tgz",
     "prebuild": "yarn run clean",
     "build:shared": "esbuild shared/index.ts --outdir=dist/shared --sourcemap --bundle --minify --platform=neutral --out-extension:.js=.mjs --main-fields=module,main,browser --external:tty # Don't forget to add type:'module' in package.json",
-    "build:client": "esbuild client/index.ts --outdir=dist/client --sourcemap --bundle --minify --platform=browser",
+    "build:client": "esbuild client/index.ts --outdir=dist/client --sourcemap --bundle --minify --platform=browser --out-extension:.js=.mjs",
     "build:server": "esbuild server/index.ts --outdir=dist/server --sourcemap --bundle --minify --platform=node --external:react --external:react-dom",
     "build:types": "tsc --project tsconfig.build.json",
     "build": "yarn run build:shared && yarn run build:client && yarn run build:server && yarn run build:types",
