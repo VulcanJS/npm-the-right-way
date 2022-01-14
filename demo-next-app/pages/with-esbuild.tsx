@@ -5,7 +5,7 @@ import { serverOnly, ServerOnlyType } from "my-package-esbuild/server";
 import dynamic from "next/dynamic";
 
 // @ts-ignore
-// FIXME: import() doesn't work with ES modules
+// FIXME: import() doesn't seem to work with ES modules
 /*
 const DynamicClientOnly = dynamic(
   () =>
