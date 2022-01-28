@@ -43,7 +43,7 @@ You can:
 - add a performance benchmark
 - automate building, facilitate development
 
-## Learnings
+## Learnings - various
 
 ### Formats
 
@@ -67,17 +67,7 @@ Moderne bundlers such as Esbuild might not support them: https://github.com/evan
 - TS will transpile dynamic import, leading to `Module not found: ESM packages (my-package-esbuild/client) need to be imported. Use 'import'`. You need to prevent it from doing so: https://stackoverflow.com/questions/65265420/how-to-prevent-typescript-from-transpiling-dynamic-imports-into-require
 In Next.js, the issue can be bypassed by definining an intermdiate client-only, using top level `import`, and then dynamically importing only the local component.
 - It might explain https://stackoverflow.com/questions/68423950/when-using-esbuild-with-external-react-i-get-dynamic-require-of-react-is-not-s?rq=1
-
-### Webpack
-
-- Webpack has a weird way to handle packages in Lerna repo, the bundle sometimes end up containing the current package + imports: https://github.com/lerna/lerna/issues/3006
-
-At the moment this repo doesn't demo importing other packages, or monorepo, but it could useful in the future.
-
-### Esbuild
-
-- Handling external is utterly painful for the server export! You want to add packages such as React, Graphql etc. as "externals" but there
-  is no easy way to add all packages from package.json as externals
+- In the future, TSC might be rewritten in Go by the developper behind SWC (announced in January 2020 https://twitter.com/kdy1dev/status/1484764829097201667), bringing crazy performances
 
 ### Esmodules
 
@@ -93,6 +83,26 @@ The `@types` directive in comments might help having IntelliSense in VS code, wi
 leading to stale imports
 - NPM and/or Yarn may cache .tgz files in an unexpected way, reinstalling a stale version everytime:https://github.com/yarnpkg/yarn/issues/6811
 
+## Learning - per build tools
+
+
+### Webpack
+
+- Works ok, but slow
+- Webpack has a weird way to handle packages in Lerna repo, the bundle sometimes end up containing the current package + imports: https://github.com/lerna/lerna/issues/3006
+
+At the moment this repo doesn't demo importing other packages, or monorepo, but it could useful in the future.
+### Esbuild
+
+- Handling external is utterly painful for the server export! You want to add packages such as React, Graphql etc. as "externals" but there
+  is no easy way to add all packages from package.json as externals
+- The demo works, but it may still generate `const React = require('React')` in the ESM build in some real-life context, while "require" should never
+appear in an ESM module
+
+### Unbuild
+
+- Doesn't respect the "outDir" in our demo
+- Based on rollup, at the time of writing there is no official doc for the config, but you can write in TypeScript and read the source directly: https://github.com/unjs/unbuild/blob/main/src/types.ts
 
 ## Contribute
 
@@ -118,3 +128,4 @@ you may open a PR modifying the "package-template". We can then apply this chang
 - Vulcan Fullstack packages RFC: https://github.com/VulcanJS/vulcan-npm/issues/14
 - TS and ESM https://github.com/microsoft/TypeScript/issues/42151
 - Conditional exports in package: https://nodejs.org/api/packages.html#conditional-exports
+- Blitz toolkit setup PR, with unbuild https://github.com/blitz-js/blitz/pull/3129
