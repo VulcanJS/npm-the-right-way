@@ -103,6 +103,7 @@ appear in an ESM module
 ### Tsup
 
 - Tsup is an abstraction over Esbuild. It sounds more relevant for people that build packages (treating node modules as externals ; generating .d.ts etc.)
+- Supports .d.ts generation but probably not `.d.ts.map` which are needed for local development (switching to types in VS code) => it might still be necessary to use `tsc` during dev
 
 ### Unbuild
 
