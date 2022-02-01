@@ -1,0 +1,45 @@
+{
+  "name": "my-package-tsup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": {
+      "node": "./dist/server/index.js",
+      "import": "./dist/shared/index.mjs"
+    },
+    "./server": "./dist/server/index.js",
+    "./client": "./dist/client/index.mjs"
+  },
+  "types": "./dist/shared/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "server": [
+        "./dist/server/index.d.ts"
+      ],
+      "client": [
+        "./dist/client/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "clean": "rm -Rf ./dist && rm -Rf *.tgz",
+    "prebuild": "yarn run clean",
+    "build:tsup": "tsup",
+    "build": "yarn run build:tsup",
+    "publish": "yarn run build && npm pack"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "tsup": "^5.11.11",
+    "typescript": "4.2.2"
+  },
+  "dependencies": {
+    "react": "^17.0.2"
+  }
+}

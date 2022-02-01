@@ -92,12 +92,17 @@ leading to stale imports
 - Webpack has a weird way to handle packages in Lerna repo, the bundle sometimes end up containing the current package + imports: https://github.com/lerna/lerna/issues/3006
 
 At the moment this repo doesn't demo importing other packages, or monorepo, but it could useful in the future.
+
 ### Esbuild
 
 - Handling external is utterly painful for the server export! You want to add packages such as React, Graphql etc. as "externals" but there
   is no easy way to add all packages from package.json as externals
 - The demo works, but it may still generate `const React = require('React')` in the ESM build in some real-life context, while "require" should never
 appear in an ESM module
+
+### Tsup
+
+- Tsup is an abstraction over Esbuild. It sounds more relevant for people that build packages (treating node modules as externals ; generating .d.ts etc.)
 
 ### Unbuild
 

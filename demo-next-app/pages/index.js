@@ -15,6 +15,14 @@ export default function Home() {
             <a>Demo importing a full-stack package built with Esbuild</a>
           </Link>
         </li>
+        <li>
+          <Link href="/with-tsup">
+            <a>
+              Demo importing a full-stack package built with Tsup (Esbuild
+              abstraction)
+            </a>
+          </Link>
+        </li>
       </ul>
     </div>
   );
