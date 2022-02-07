@@ -11,8 +11,8 @@ export default function WithEsbuildPage(props: { serverOnly: ServerOnlyType }) {
       </div>
       <div>Shared:{shared}</div>
       <p>
-        Note: this line should provoke an SSR issue, it's perfectly normal,
-        that's just for testing
+        {`Note: this line should provoke an SSR issue, it\'s perfectly normal,
+        that's just for testing`}
       </p>
       <div>Is client: {isClient() ? "true" : "false"} </div>
     </div>

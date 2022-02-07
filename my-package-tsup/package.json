@@ -2,17 +2,18 @@
   "name": "my-package-tsup",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/shared/index.js",
+  "type": "module",
   "files": [
     "dist/"
   ],
   "exports": {
     ".": {
-      "node": "./dist/server/index.js",
-      "import": "./dist/shared/index.mjs"
+      "node": "./dist/server/index.cjs",
+      "import": "./dist/shared/index.js"
     },
-    "./server": "./dist/server/index.js",
-    "./client": "./dist/client/index.mjs"
+    "./server": "./dist/server/index.cjs",
+    "./client": "./dist/client/index.js"
   },
   "types": "./dist/shared/index.d.ts",
   "typesVersions": {
