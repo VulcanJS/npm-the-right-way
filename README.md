@@ -72,9 +72,9 @@ In Next.js, the issue can be bypassed by definining an intermdiate client-only, 
 ### Esmodules
 
 - They are more appropriate for packages as "IIFE", because packages might be imported within an app that will in turn be built. ES modules will give more freedom to the app bundler, while in an NPM package we want to minimize the build step. See https://esbuild.github.io/api/#format
-- Setting "type":"module" in package.json will apply to **all exports**! So if you use CommonJS exports for Node + ESM for browser the Node imports will break. At the moment avoid this option if you need to support fullstack packages, prefer conditional exports: https://nodejs.org/api/packages.html#conditional-exports. Use `.mjs` extension to make it clear that the shared code is using ESM
-=> this needs investigations
+- Setting "type":"module" in package.json will apply to **all exports with .js extension**! So if you use CommonJS exports for Node + ESM for browser the Node imports will break. This applies to conditional exports too. Instead, **make sure that CommonJS file are using .cjs extension!**
 - Exporting Node to ES modules is a bad idea. Instead use conditionnal exports, and CommonJS for node code.
+- **CommonJS exports must end with .cjs and ES Modules with .mjs!** ".js" alone is ambiguous! Its behaviour changes depending on the `type: "module"` option of package.json, leading to confusing behaviour.
   
 ### Others
 
@@ -105,7 +105,9 @@ appear in an ESM module
 
 - Tsup is an abstraction over Esbuild. It sounds more relevant for people that build packages (treating node modules as externals ; generating .d.ts etc.)
 - Supports .d.ts generation but probably not `.d.ts.map` which are needed for local development (switching to types in VS code) => it might still be necessary to use `tsc` during dev
-- Changing the kind of built file might change the extensions, be careful with that (sometimes .js is the commonJS, sometimes the ES modules)
+- Changing the kind of built file might change the extensions, be careful with that (sometimes .js is the commonJS, sometimes the ES modules).
+**This may lead to the following confusing behaviour:**: when using `cjs` and `esm` as the the output, `.js` will be the `CommonJS` export, and `.mjs` the ES module export. If you add `type: module` to your package.json, the CommonJS `.js` export will actually be considered as an ES Module!
+Conditional exports are supposed to avoid this issue (you don't need to use `type:"module"` with them) but may not work
  
 ### Unbuild
 
