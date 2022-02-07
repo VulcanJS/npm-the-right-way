@@ -73,6 +73,7 @@ In Next.js, the issue can be bypassed by definining an intermdiate client-only, 
 
 - They are more appropriate for packages as "IIFE", because packages might be imported within an app that will in turn be built. ES modules will give more freedom to the app bundler, while in an NPM package we want to minimize the build step. See https://esbuild.github.io/api/#format
 - Setting "type":"module" in package.json will apply to **all exports**! So if you use CommonJS exports for Node + ESM for browser the Node imports will break. At the moment avoid this option if you need to support fullstack packages, prefer conditional exports: https://nodejs.org/api/packages.html#conditional-exports. Use `.mjs` extension to make it clear that the shared code is using ESM
+=> this needs investigations
 - Exporting Node to ES modules is a bad idea. Instead use conditionnal exports, and CommonJS for node code.
   
 ### Others
@@ -104,7 +105,8 @@ appear in an ESM module
 
 - Tsup is an abstraction over Esbuild. It sounds more relevant for people that build packages (treating node modules as externals ; generating .d.ts etc.)
 - Supports .d.ts generation but probably not `.d.ts.map` which are needed for local development (switching to types in VS code) => it might still be necessary to use `tsc` during dev
-
+- Changing the kind of built file might change the extensions, be careful with that (sometimes .js is the commonJS, sometimes the ES modules)
+ 
 ### Unbuild
 
 - Doesn't respect the "outDir" in our demo
