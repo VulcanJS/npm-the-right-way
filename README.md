@@ -134,6 +134,7 @@ you may open a PR modifying the "package-template". We can then apply this chang
 
 ## References
 
+- TSDX: to be explored, it brings a better UX to package development: https://github.com/jaredpalmer/tsdx
 - Next.js Plugin RFC: https://github.com/vercel/next.js/discussions/9133#discussioncomment-1927292
 - Vulcan Fullstack packages RFC: https://github.com/VulcanJS/vulcan-npm/issues/14
 - TS and ESM https://github.com/microsoft/TypeScript/issues/42151
