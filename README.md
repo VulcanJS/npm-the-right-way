@@ -36,7 +36,8 @@ See contribute section below.
 
 You can:
 
-- add a demo with a new bundler: Rollup, Tsup (https://github.com/egoist/tsup), Unbuild (https://github.com/unjs/unbuild) could be great candidates.
+- add a demo with a new bundler: Rollup, ~~Tsup (https://github.com/egoist/tsup)~~ (done :), Unbuild (https://github.com/unjs/unbuild) could be great candidates.
+- exploring TSDX (https://github.com/jaredpalmer/tsdx): how could contribute to this project, which ideas we could test here
 - improve the build for one of the bundler we cover
 - add automated tests for the Next.js app, using Jest or Cypress
 - open an issue with ideas, feedback, knowledge about bundlers, a feature you'd like to test etc. etc.
@@ -75,6 +76,15 @@ In Next.js, the issue can be bypassed by definining an intermdiate client-only, 
 - Setting "type":"module" in package.json will apply to **all exports with .js extension**! So if you use CommonJS exports for Node + ESM for browser the Node imports will break. This applies to conditional exports too. Instead, **make sure that CommonJS file are using .cjs extension!**
 - Exporting Node to ES modules is a bad idea. Instead use conditionnal exports, and CommonJS for node code.
 - **CommonJS exports must end with .cjs and ES Modules with .mjs!** ".js" alone is ambiguous! Its behaviour changes depending on the `type: "module"` option of package.json, leading to confusing behaviour.
+
+### TSDX
+
+TSDX is a brillant project that helps bootstrapping NPM package development
+
+- It includes dev vs prod bundle with a loading based on the current NODE_ENV => very interesting pattern, that we could use here
+- It includes a nice support for Lodash
+- It is based on top of Rollup for the build
+- Limitations: it doesn't demo a monorepo and doesn't demo fullstack packages, but could probably be extended to do so
   
 ### Others
 
