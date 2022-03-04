@@ -9,8 +9,6 @@ if (typeof window !== "undefined" && !!window) {
 }
 */
 
-export type ServerOnlyType = "server-only";
-export const serverOnly: ServerOnlyType = "server-only";
-
-// Reexport a dependency to check that it works ok
-export * from "my-package-tsup-dependency/server";
+export type ServerOnlyDependencyType = "server-only-dependency";
+export const serverOnlyDependency: ServerOnlyDependencyType =
+  "server-only-dependency";
