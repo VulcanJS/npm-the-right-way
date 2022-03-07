@@ -94,6 +94,11 @@ The `@types` directive in comments might help having IntelliSense in VS code, wi
 leading to stale imports
 - NPM and/or Yarn may cache .tgz files in an unexpected way, reinstalling a stale version everytime:https://github.com/yarnpkg/yarn/issues/6811
 
+### Next.js app
+
+- In v12.1, I hit following bug:https://github.com/vercel/next.js/issues/35112 with "type":"module". It seems that the CJS code might in some case try to load the ESM exports of its submodule, instead of sticking to CJS.
+
+
 ## Learning - per build tools
 
 
@@ -123,6 +128,8 @@ Conditional exports are supposed to avoid this issue (you don't need to use `typ
 
 - Doesn't respect the "outDir" in our demo
 - Based on rollup, at the time of writing there is no official doc for the config, but you can write in TypeScript and read the source directly: https://github.com/unjs/unbuild/blob/main/src/types.ts
+
+
 
 ## Contribute
 
