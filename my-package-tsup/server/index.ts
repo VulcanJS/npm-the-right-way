@@ -13,4 +13,4 @@ export type ServerOnlyType = "server-only";
 export const serverOnly: ServerOnlyType = "server-only";
 
 // Reexport a dependency to check that it works ok
-export * from "my-package-tsup-dependency/server";
+export * from "my-package-tsup-dependency";
