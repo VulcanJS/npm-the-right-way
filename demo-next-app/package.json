@@ -11,11 +11,12 @@
     "my-package-esbuild": "file:../my-package-esbuild/my-package-esbuild-1.0.0.tgz",
     "my-package-tsup": "file:../my-package-tsup/my-package-tsup-1.0.0.tgz",
     "my-package-webpack": "file:../my-package-webpack/my-package-webpack-1.0.0.tgz",
-    "next": "12.0.7",
+    "next": "^12.1.1-canary.6",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@types/node": "^17.0.21",
     "@types/react": "^17.0.38",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7"
