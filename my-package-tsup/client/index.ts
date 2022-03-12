@@ -7,3 +7,6 @@ if (typeof window === "undefined" || !window) {
 
 export type ClientOnlyType = "client-only";
 export const clientOnly: ClientOnlyType = "client-only";
+
+// Reexport a dependency to check that it works ok
+export * from "my-package-tsup-dependency/client";

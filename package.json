@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "clean": "rm -Rf ./demo-next-app/node_modules/my-package-* ./demo-next-app/.next"
+  },
   "devDependencies": {
     "typescript": "^4.5.4"
   },

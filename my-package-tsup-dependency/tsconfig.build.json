@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "./shared/index.ts",
+    "./client/index.ts",
+    "./server/index.ts"
+  ],
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "isolatedModules": false,
+    "declaration": true,
+    // helps local development, could be dropped out of the NPM package though
+    "declarationMap": true
+  },
+}
